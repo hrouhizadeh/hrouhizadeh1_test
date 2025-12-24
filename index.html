@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hossein Rouhizadeh — PhD Candidate, University of Geneva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #c53030;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Header / Hero */
+        header {
+            padding: 8rem 0 4rem;
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid var(--border);
+        }
+
+        .header-text h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text .title {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .header-text .affiliation {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-text .affiliation a {
+            font-weight: 500;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            padding: 0.4rem 0;
+        }
+
+        .contact-links a i {
+            font-size: 1rem;
+            width: 1.1rem;
+        }
+
+        .contact-links a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-links .cv-btn {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .contact-links .cv-btn:hover {
+            background: var(--secondary);
+            color: white !important;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        /* About / Bio */
+        .bio p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .research-interests {
+            margin-top: 1.5rem;
+        }
+
+        .research-interests h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .interest-tags span {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        /* News Section */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-list li {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .news-content {
+            font-size: 0.95rem;
+        }
+
+        /* Publications */
+        .pub-year-section {
+            margin-bottom: 2rem;
+        }
+
+        .pub-year-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .publication {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-authors .me {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .pub-venue {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .pub-links a {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .pub-links a i {
+            font-size: 0.75rem;
+        }
+
+        /* Education & Experience */
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .timeline-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content .institution {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content .description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-img {
+                margin: 0 auto;
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 0.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .news-list li {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-name">Hossein Rouhizadeh</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://avatars.githubusercontent.com/u/76054611?v=4" alt="Hossein Rouhizadeh" class="profile-img">
+                <div class="header-text">
+                    <h1>Hossein Rouhizadeh</h1>
+                    <p class="title">PhD Candidate in Biomedical Natural Language Processing</p>
+                    <p class="affiliation">
+                        <a href="https://ds4dh.github.io/" target="_blank">Data Science for Digital Health (DS4DH)</a><br>
+                        Department of Radiology and Medical Informatics<br>
+                        Faculty of Medicine, <a href="https://www.unige.ch/" target="_blank">University of Geneva</a>
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:hossein.rouhizadeh@unige.ch"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="https://scholar.google.com/citations?user=9_qIF3AAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                        <a href="https://github.com/hrouhizadeh" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/hrouhizadeh/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="cv.pdf" target="_blank" class="cv-btn"><i class="fas fa-file-pdf"></i> CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="about" class="bio">
+                <h2>About</h2>
+                <p>
+                    I am a PhD candidate in the <a href="https://ds4dh.github.io/" target="_blank">Data Science for Digital Health (DS4DH)</a> group at the University of Geneva, working under the supervision of <a href="#">Prof. Douglas Teodoro</a>. My doctoral research focuses on leveraging state-of-the-art natural language processing (NLP) methodologies to extract structured information from multilingual biomedical texts.
+                </p>
+                <p>
+                    My work involves transforming unstructured data from diverse linguistic sources into coherent, structured formats to enhance the utility of medical information in research and healthcare improvement initiatives. I am particularly interested in biomedical concept normalization, word sense disambiguation, and evaluating how well language models represent medical concepts in context.
+                </p>
+                <p>
+                    Prior to my PhD, I worked as a Research Scientist at Dadmatech in Tehran, Iran, where I focused on transforming English texts into structured formats using advanced deep learning techniques, including entity typing and named entity recognition. I completed my Master's degree at Shahid Beheshti University, working with Dr. Mehrnoush Shamsfard on multilingual word sense disambiguation and building the first Persian WSD corpus.
+                </p>
+                <div class="research-interests">
+                    <h3>Research Interests</h3>
+                    <div class="interest-tags">
+                        <span>Biomedical NLP</span>
+                        <span>Word Sense Disambiguation</span>
+                        <span>Named Entity Recognition</span>
+                        <span>Biomedical Concept Normalization</span>
+                        <span>Large Language Models</span>
+                        <span>Multilingual NLP</span>
+                        <span>Clinical Text Mining</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="news">
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">May 2025</span>
+                        <span class="news-content">Paper on zero-shot cross-lingual biomedical concept normalization published in Studies in Health Technology and Informatics.</span>
+                    </li>
+                    <li>
+                        <span class="news-date">Jan 2025</span>
+                        <span class="news-content">New preprint on multilingual benchmarking of LLMs for medical concept encoding now available on medRxiv.</span>
+                    </li>
+                    <li>
+                        <span class="news-date">May 2024</span>
+                        <span class="news-content">Our BioWiC paper published in <em>Scientific Data</em> (Nature).</span>
+                    </li>
+                    <li>
+                        <span class="news-date">Dec 2022</span>
+                        <span class="news-content">Paper on efficient joint learning for clinical NER and relation extraction presented at ICON 2022.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="publications">
+                <h2>Selected Publications</h2>
+                
+                <div class="pub-year-section">
+                    <h3>2025</h3>
+                    <div class="publication">
+                        <div class="pub-title">Large Language Models Struggle to Encode Medical Concepts — A Multilingual Benchmarking and Comparative Analysis</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Anthony Yazdani, Boya Zhang, David Vicente Alvarez, Matthias Hüser, Alexandre Vanobberghen, Rui Yang, Irene Li, Andreas Walter, Douglas Teodoro</div>
+                        <div class="pub-venue">medRxiv (Preprint), 2025</div>
+                        <div class="pub-links">
+                            <a href="https://www.medrxiv.org/content/10.1101/2025.01.15.25320579v1" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <div class="pub-title">Exploring Zero-Shot Cross-Lingual Biomedical Concept Normalization via Large Language Models</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Anthony Yazdani, Boya Zhang, Douglas Teodoro</div>
+                        <div class="pub-venue">Studies in Health Technology and Informatics, 2025</div>
+                        <div class="pub-links">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40380575/" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/hrouhizadeh/zsh_cl_bcn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <div class="pub-title">MKG-Rank: Enhancing Large Language Models with Knowledge Graph for Multilingual Medical Question Answering</div>
+                        <div class="pub-authors">Feiyang Li, Yingjian Chen, Haoran Liu, Rui Yang, Han Yuan, Yuang Jiang, Tianxiao Li, Edison Marrese-Taylor, <span class="me">Hossein Rouhizadeh</span>, Yusuke Iwasawa, Douglas Teodoro, Yutaka Matsuo, Irene Li</div>
+                        <div class="pub-venue">arXiv Preprint, 2025</div>
+                        <div class="pub-links">
+                            <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-year-section">
+                    <h3>2024</h3>
+                    <div class="publication">
+                        <div class="pub-title">BioWiC: A Dataset for Evaluating Contextualized Representation of Biomedical Concepts in Language Models</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Irina Nikishina, Anthony Yazdani, Alban Bornet, Boya Zhang, Julien Ehrsam, Christophe Gaudet-Blavignac, Nona Naderi, Douglas Teodoro</div>
+                        <div class="pub-venue">Scientific Data (Nature), 2024</div>
+                        <div class="pub-links">
+                            <a href="https://www.nature.com/articles/s41597-024-03317-w" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/hrouhizadeh/BioWiC" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://huggingface.co/datasets/hrouhizadeh/BioWiC" target="_blank"><i class="fas fa-database"></i> Dataset</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-year-section">
+                    <h3>2022-2023</h3>
+                    <div class="publication">
+                        <div class="pub-title">Efficient Joint Learning for Clinical Named Entity Recognition and Relation Extraction Using Fourier Networks: A Use Case in Adverse Drug Events</div>
+                        <div class="pub-authors">Anthony Yazdani, Dimitrios Proios, <span class="me">Hossein Rouhizadeh</span>, Douglas Teodoro</div>
+                        <div class="pub-venue">ICON 2022 - International Conference on Natural Language Processing</div>
+                        <div class="pub-links">
+                            <a href="https://aclanthology.org/2022.icon-main.28/" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <div class="pub-title">DS4DH at SemEval-2022 Task 11: Multilingual Named Entity Recognition Using an Ensemble of Transformer-based Language Models</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Douglas Teodoro</div>
+                        <div class="pub-venue">SemEval @ NAACL 2022</div>
+                        <div class="pub-links">
+                            <a href="https://aclanthology.org/2022.semeval-1.214/" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-year-section">
+                    <h3>2019-2021</h3>
+                    <div class="publication">
+                        <div class="pub-title">Persian SemCor: A Bag of Word Sense Annotated Corpus for the Persian Language</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Mehrnoush Shamsfard, Mahdi Dehghan, Masoud Rouhizadeh</div>
+                        <div class="pub-venue">Global Wordnet Conference (GWC), 2021</div>
+                        <div class="pub-links">
+                            <a href="https://aclanthology.org/2021.gwc-1.17/" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <div class="pub-title">Persian-WSD-Corpus: A Sense Annotated Corpus for Persian All-words Word Sense Disambiguation</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Mehrnoush Shamsfard, Vahideh Tajalli, Masoud Rouhizadeh</div>
+                        <div class="pub-venue">arXiv Preprint, 2021</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2107.01540" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/hrouhizadeh/SBU-WSD-Corpus" target="_blank"><i class="fab fa-github"></i> Dataset</a>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <div class="pub-title">Knowledge-Based Word Sense Disambiguation with Distributional Semantic Expansion</div>
+                        <div class="pub-authors"><span class="me">Hossein Rouhizadeh</span>, Mehrnoush Shamsfard, Masoud Rouhizadeh</div>
+                        <div class="pub-venue">WiNLP @ ACL 2019</div>
+                        <div class="pub-links">
+                            <a href="https://aclanthology.org/W19-3604/" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2>Education & Experience</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 – Present</div>
+                    <div class="timeline-content">
+                        <h3>PhD Candidate</h3>
+                        <div class="institution">University of Geneva, Switzerland</div>
+                        <div class="description">Data Science for Digital Health (DS4DH) group. Research on biomedical NLP and clinical text mining under Prof. Douglas Teodoro.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 – 2021</div>
+                    <div class="timeline-content">
+                        <h3>Research Scientist</h3>
+                        <div class="institution">Dadmatech, Tehran, Iran</div>
+                        <div class="description">Developed deep learning models for entity typing, named entity recognition, open information extraction, and coreference resolution.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h3>NLP Developer</h3>
+                        <div class="institution">Tapsi, Tehran, Iran</div>
+                        <div class="description">Text processing on Persian COVID-19 tweets, training word embeddings, and deploying text classification models.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2016 – 2019</div>
+                    <div class="timeline-content">
+                        <h3>M.Sc. in Computer Engineering</h3>
+                        <div class="institution">Shahid Beheshti University, Tehran, Iran</div>
+                        <div class="description">NLP Lab. Research on multilingual word sense disambiguation with Dr. Mehrnoush Shamsfard. Built SBU-WSD-Corpus.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Hossein Rouhizadeh. Last updated: December 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
